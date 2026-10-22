@@ -1,0 +1,43 @@
+{
+  "name": "expense-express-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck:tests": "tsc --project tsconfig.test.json",
+    "dev": "tsx watch src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "db:check": "node --env-file=.env --import tsx src/scripts/check-database.ts",
+    "migration:make": "node --env-file=.env.migrations ./node_modules/knex/bin/cli.js --knexfile knexfile.mjs migrate:make",
+    "migration:run": "node --env-file=.env.migrations ./node_modules/knex/bin/cli.js --knexfile knexfile.mjs migrate:latest",
+    "migration:status": "node --env-file=.env.migrations ./node_modules/knex/bin/cli.js --knexfile knexfile.mjs migrate:list"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "argon2": "^0.45.1",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "mysql2": "^3.24.4",
+    "nodemailer": "^10.0.15",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.20.3",
+    "@types/nodemailer": "^8.0.2",
+    "@types/supertest": "^7.2.1",
+    "knex": "^3.3.0",
+    "supertest": "^7.2.2",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}
